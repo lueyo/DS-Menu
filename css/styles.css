@@ -1,0 +1,480 @@
+@font-face {
+    font-family: 'Nintendo DS Font';
+    src: url('../src/font.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Pictochat';
+    src: url('../src/pictochat.ttf') format("truetype");
+}
+
+
+/* Ahora puedes usar la fuente en tu CSS */
+.container {
+    font-family: 'Nintendo DS Font', sans-serif;
+
+}
+
+:root {
+    --block: 15px;
+    --big-block: 46px;
+    --font: 1em;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../src/bgup30x30border.jpeg");
+    background-size: calc(var(--block)) calc(var(--block));
+    /* Aumentamos el tamaño de la imagen en 1px para crear el espacio */
+    background-repeat: repeat;
+
+    font-size: var(--font);
+    /* Repite la imagen horizontalmente */
+}
+
+
+
+header {
+    font-size: 18px;
+    margin-bottom: calc(var(--block));
+    padding-left: 2px;
+    padding-right: 2px;
+    height: 15px;
+    background-image: url("../src/bgheader.jpeg");
+    background-repeat: repeat-x;
+    font-weight: 500;
+    font-stretch: 80%;
+    color: white;
+    border-bottom: #000 solid 2px;
+
+}
+
+.calendar tr {
+    height: calc(var(--block));
+    width: calc(var(--block));
+
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+td {
+    border: #929292 solid 1px;
+    width: calc(var(--block)*1);
+
+
+}
+
+header div {
+    display: inline-block;
+}
+
+.border-right-dashed {
+
+    border-right: 1px dashed #494949;
+
+
+
+}
+
+.border-left-dashed {
+
+    border-left: 1px dashed #494949;
+
+
+
+}
+
+header img {
+    height: 11px;
+}
+
+header .user {
+
+    float: left;
+    /* Alinea a la izquierda */
+}
+
+header .info-header {
+
+    float: right;
+    /* Alinea a la derecha */
+}
+
+
+.hidden {
+    display: none;
+}
+
+.upcalendar {
+    background-color: #fff;
+
+    border: #C3C3C3 solid 1px;
+
+}
+
+.calendarcontainer {
+    margin-left: calc(var(--block)/2);
+    text-align: center;
+    width: calc(var(--block)*7);
+
+}
+
+.calendar {
+    border: #000 solid 1px;
+}
+
+.calendar table {
+    color: #303030;
+    background-color: #FBFBFB;
+    border: #000 solid 1px;
+
+}
+
+.Su {
+    background-color: #FBA2EB;
+    color: #790000;
+}
+
+.Sa {
+    background-color: #82AAFB;
+    color: #000082;
+}
+
+.nombre-dias {
+
+    background-color: #696969;
+    color: #FBFBFB;
+}
+
+.nombre-dias .Su {
+    background-color: #D30000;
+    color: #FBFBFB;
+}
+
+.nombre-dias .Sa {
+    background-color: #0041c3;
+    color: #FBFBFB;
+}
+
+.nombre-dias td {
+    border: #000 solid 1px;
+}
+
+.clock {
+
+    height: calc(var(--block)*7);
+    width: calc(var(--block)*7);
+    border: #000 solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../src/reloj.png);
+    background-size: cover;
+    margin-right: calc(var(--block)/2);
+
+}
+
+.handcontainer {
+    height: calc(var(--block)*9);
+}
+
+.hand {
+    position: relative;
+    top: 0%;
+    left: 0%;
+    height: 10%;
+    width: 1%;
+    background-color: #000;
+    transform-origin: bottom;
+
+}
+
+.red-hand {
+    background-color: #FB5971;
+    position: relative;
+    top: -7%;
+    left: -6%;
+    transform-origin: bottom center;
+
+    height: calc(var(--block));
+    width: 1%;
+}
+
+.second-hand {
+    background-color: #61829a;
+    position: relative;
+    top: -17%;
+    left: -5%;
+    transform-origin: bottom center;
+
+    height: 35%;
+    width: 1%;
+}
+
+.minute-hand {
+    background-color: #797979;
+    position: relative;
+    top: -17.5%;
+    left: -5%;
+    transform-origin: bottom center;
+
+    height: 35%;
+    width: 1%;
+}
+
+.hour-hand {
+    background-color: #797979;
+    position: relative;
+    top: -11%;
+    left: -2%;
+    transform-origin: bottom center;
+
+    height: 22%;
+    width: 1%;
+}
+
+.motor-hand {
+    background-color: #494949;
+    width: calc(var(--block)/3);
+    height: calc(var(--block)/3);
+    position: relative;
+    /* Necesario para que z-index funcione */
+    z-index: 1;
+    /* Ajusta este valor según sea necesario */
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actual-day span {
+    margin: 10%;
+    display: block;
+    background-color: #D3DBE3;
+    border: 2px dotted #506E84;
+    width: calc(var(--block)-1);
+    height: calc(var(--block)-1);
+}
+
+.bottom-screen {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    background-image: url("../src/fondoabajo4x4bordes92x92.png");
+    background-size: calc(var(--big-block)) calc(var(--big-block));
+    background-repeat: repeat;
+    height: calc(var(--big-block)*4);
+    width: calc(var(--big-block)*9);
+    border: #aaaaaa 1px solid;
+}
+
+.apps {
+    display: inline-block;
+    border: rgb(0, 0, 0) 1px solid;
+    height: calc(var(--big-block)*3);
+    width: calc(var(--big-block)*7);
+}
+
+.top-element {
+    display: flex;
+    background-image: url("../src/buton-texture.png");
+    background-repeat: repeat-x;
+    height: calc(var(--big-block)*1);
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+.juego-img {
+    background-image: url("../src/nsmb-logo.jpeg");
+
+    background-size: cover;
+
+    margin-right: calc(var(--block)/2);
+    height: calc(var(--big-block)*0.8);
+    width: calc(var(--big-block)*0.8);
+}
+
+.juego-img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.juego-nombre {
+    background-image: url("../src/fondoabajo88x88-button.png");
+    background-repeat: repeat-x;
+    background-size: calc(var(--big-block)) calc(var(--big-block));
+    height: calc(var(--big-block));
+    width: calc(var(--big-block)*7);
+    text-align: center;
+    border: #797979 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-elements {
+    display: flex;
+}
+
+.center-elements>div {
+    border: #000 1px solid;
+    margin: 1.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../src/buton-texture.png");
+    background-repeat: repeat-x;
+    height: calc(var(--big-block)*1);
+    width: calc(var(--big-block)*3.5);
+}
+
+.pictochat-button {
+    font-family: "Pictochat";
+    font-size: 0.7em;
+
+}
+
+.ds-download-play-button {
+    font-size: 0.7em;
+    position: relative;
+
+}
+
+.ds-download-text {
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    /* Añadido para centrar verticalmente el texto */
+    justify-content: center;
+    /* Añadido para asegurar el centrado horizontal con flex */
+    background-color: #FBFBFB;
+    width: calc(var(--big-block)*3.3);
+    text-align: center;
+    font-size: 1.191em;
+    border: #797979 solid 1px;
+    margin: 1px;
+}
+
+
+.gba-img {
+    background-image: url("../src/gba.png");
+
+    background-size: cover;
+
+    margin-right: calc(var(--block)/2);
+    height: calc(var(--big-block)*0.7);
+    width: calc(var(--big-block)*0.9);
+}
+
+.gba-img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gba-nombre {
+    background-image: url("../src/fondoabajo88x88-button.png");
+    background-repeat: repeat-x;
+    background-size: calc(var(--big-block)) calc(var(--big-block));
+    height: calc(var(--big-block));
+    width: calc(var(--big-block)*7);
+    text-align: center;
+    border: #797979 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bottom-element {
+    display: flex;
+    background-image: url("../src/buton-texture.png");
+    background-repeat: repeat-x;
+    height: calc(var(--big-block)*1);
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+
+.options {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    display: flex;
+    justify-content: space-between;
+    /* Añade esta línea */
+    transform: translateX(-50%);
+    height: calc(var(--big-block)*0.4);
+    width: calc(var(--big-block)*9);
+}
+
+.brightness-icon {
+    background-image: url("../src/sunicon.png");
+
+    background-size: cover;
+
+    margin-right: calc(var(--block)/2);
+    height: calc(var(--big-block)*0.4);
+    width: calc(var(--big-block)*0.4);
+}
+
+.ds-config-icon {
+    background-image: url("../src/dsicon.png");
+
+    background-size: cover;
+
+    margin-right: calc(var(--block)/2);
+    height: calc(var(--big-block)*0.4);
+    width: calc(var(--big-block)*0.4);
+}
+
+.clock-options-icon {
+    background-image: url("../src/clock-ds-icon.png");
+
+    background-size: cover;
+
+    margin-right: calc(var(--block)/2);
+    height: calc(var(--big-block)*0.4);
+    width: calc(var(--big-block)*0.4);
+}
+
+.ds-download-icon {
+    background-image: url("../src/dsdownplay.png");
+    height: 60%;
+    width: 50%;
+
+    background-size: cover;
+
+    margin-right: calc(var(--block)/2);
+    
+
+}
+.ds-download-icon-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+}

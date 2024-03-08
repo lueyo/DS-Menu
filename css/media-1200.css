@@ -1,0 +1,10 @@
+@media screen and (min-width: 1200px) {
+    :root {
+        --block: 30px;
+        --big-block: 65px;
+        --font: 1.6em;
+
+
+    }
+
+}

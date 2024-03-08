@@ -1,0 +1,9 @@
+@media screen and (min-width:768px) and (max-width:991px) {
+    :root {
+        --block: 20px;
+        --big-block: 40px;
+        --font: 1.1em;
+
+
+    }
+}
