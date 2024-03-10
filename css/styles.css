@@ -468,13 +468,18 @@ main {
     background-size: cover;
 
     margin-right: calc(var(--block)/2);
-    
+
 
 }
-.ds-download-icon-container{
+
+.ds-download-icon-container {
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center; /* Centra los elementos horizontalmente */
-    align-items: center; /* Centra los elementos verticalmente */
+    justify-content: center;
+    /* Centra los elementos horizontalmente */
+    align-items: center;
+    /* Centra los elementos verticalmente */
+    margin-top: calc(var(--block)/1.5);
+    /* Ajusta este valor según tus necesidades */
 }
