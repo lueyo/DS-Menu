@@ -1,8 +1,7 @@
 name: Check and rename branches
 
 on:
-  schedule:
-    - cron:  '*/2 * * * *'
+  push:
 
 jobs:
   rename-branches:
