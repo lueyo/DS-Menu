@@ -1,25 +1,22 @@
-name: Check and rename branches
+name: Rename Branches to lowerCamelCase
 
-on:
+on: 
   push:
+    branches:
+      - '**'
 
 jobs:
   rename-branches:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-
-    - name: Install dependencies
-      run: pip install branch-naming-check
-
-    - name: Check and rename branches
-      run: python branch-naming-check.py --pattern lowerCamelCase --auto-fix
+      - name: Rename branches
+        run: |
+          git branch -r | while read branch; do
+            new_branch=$(echo $branch | sed -r 's/(^|_)([a-z])/\U\2/g' | sed 's/^./\l&/')
+            git branch -m $branch $new_branch
+          done
