@@ -1,1 +1,26 @@
-workflows
+name: Check and rename branches
+
+on:
+  schedule:
+    - cron:  '*/30 * * * *'
+
+jobs:
+  rename-branches:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: pip install branch-naming-check
+
+    - name: Check and rename branches
+      run: python branch-naming-check.py --pattern lowerCamelCase --auto-fix
