@@ -307,7 +307,8 @@ main {
 
     background-size: cover;
 
-    margin-right: calc(var(--block)/2);
+    margin-left: calc(var(--block)/4);
+    margin-right: calc(var(--block)/4);
     height: calc(var(--big-block)*0.8);
     width: calc(var(--big-block)*0.8);
 }
@@ -476,5 +477,6 @@ main {
     width: 100%;
     display: flex;
     justify-content: center; /* Centra los elementos horizontalmente */
-    align-items: center; /* Centra los elementos verticalmente */
+    align-items: end; /* Centra los elementos verticalmente */
+    margin-bottom: calc(var(--block)/5);
 }
