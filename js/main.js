@@ -79,6 +79,39 @@ function fillDaysTable() {
     }
 }
 
+function playOpenDSSound() {
+    const audio = new Audio('src/opends.mp3');
+    audio.play();
+}
+
+function playCloseDSSound() {
+    const audio = new Audio('src/closeds.mp3');
+    audio.play();
+}
+
+
+function openMarioGame() {
+    playOpenDSSound();
+    const marioDialog = document.querySelector('#marioGame');
+    marioDialog.innerHTML = `
+        <div class="dialog-content">
+            <button class="close-dialog-btn" aria-label="Cerrar"><span class="close-span">&times;</span></button>
+            <div data-width="980" style="width: 980px; height: 558px" class="game_frame game_loaded" data-height="558">
+                <iframe style="width: 980px; height: 558px" id="game_drop" allowtransparency="true" webkitallowfullscreen="true" mozallowfullscreen="true" msallowfullscreen="true" scrolling="no" src="https://html-classic.itch.zone/html/12628957/MarioVsLuigi-WebGL/index.html" allow="autoplay; fullscreen *; geolocation; microphone; camera; midi; monetization; xr-spatial-tracking; gamepad; gyroscope; accelerometer; xr; cross-origin-isolated; web-share" frameborder="0" allowfullscreen="true"></iframe>
+            </div>
+        </div>
+    `;
+    marioDialog.showModal();
+
+    // Añadir evento al botón de cerrar
+    marioDialog.querySelector('.close-dialog-btn').onclick = function () {
+        marioDialog.close();
+        playCloseDSSound();
+        marioDialog.innerHTML = '';
+    };
+}
+document.querySelector('.top-element').addEventListener('click', openMarioGame);
+
 // Llamar a la función al cargar la página y cada vez que cambia el minuto
 setClock();
 setInterval(setClock, 1000);
